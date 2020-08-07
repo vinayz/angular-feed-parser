@@ -1,0 +1,19 @@
+<div>
+    <ul class="pagination">
+      <li [ngClass]="{disabled:pagination.currentPage === 1}">
+        <a (click)="changePage(1)">First</a>
+      </li>
+      <li [ngClass]="{disabled:pagination.currentPage === 1}">
+        <a (click)="changePage(pagination.currentPage - 1)">Previous</a>
+      </li>
+      <li *ngFor="let page of pagination.pages" [ngClass]="{active:pagination.currentPage === page}">
+        <a (click)="changePage(page)">{{page}}</a>
+      </li>
+      <li [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
+        <a (click)="changePage(pagination.currentPage + 1)">Next</a>
+      </li>
+      <li [ngClass]="{disabled:pagination.currentPage === pagination.totalPages}">
+        <a (click)="changePage(pagination.totalPages)">Last</a>
+      </li>
+    </ul>
+  </div>

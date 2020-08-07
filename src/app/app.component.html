@@ -1,0 +1,13 @@
+<div>
+  <div>
+    <input type="text" [(ngModel)]="feedUrl" placeholder="Enter rss feed URL" />
+    <button (click)="fetchFeedData()"> Submit </button>
+  </div>
+  <app-pagination *ngIf="RssData && RssData.length" (click)="getPagedData()"></app-pagination>
+</div>
+
+<div>
+  <ul class="feedList">
+    <li *ngFor="let o of RssData"><a href="{{o.link[0]}}" target="_blank">{{o.title[0]}}</a></li>
+  </ul>
+</div>
